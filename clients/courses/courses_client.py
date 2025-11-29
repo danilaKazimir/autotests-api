@@ -2,6 +2,7 @@ from typing import TypedDict
 from httpx import Response
 
 from clients.api_client import ApiClient
+from clients.private_http_builder import AuthenticationUserDict, get_private_http_client
 
 
 class GetCoursesQueryDict(TypedDict):
@@ -43,3 +44,7 @@ class CoursesClient(ApiClient):
 
     def delete_course_api(self, course_id: int) -> Response:
         return self.delete(f"/api/v1/courses/{course_id}")
+
+
+def get_courses_client(user: AuthenticationUserDict) -> CoursesClient:
+    return CoursesClient(client=get_private_http_client(user))
