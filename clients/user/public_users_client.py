@@ -16,7 +16,7 @@ class CreateUserRequestDict(TypedDict):
 
 class PublicUserClient(ApiClient):
     def create_user_api(self, request: CreateUserRequestDict) -> Response:
-        return self.post("/api/v1/public/users", json=request)
+        return self.post("/api/v1/users", json=request)
 
 
 def get_public_users_client() -> PublicUserClient:

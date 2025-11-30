@@ -13,7 +13,7 @@ class Token(TypedDict):
 
 
 class LoginRequestedDict(TypedDict):
-    username: str
+    email: str
     password: str
 
 

@@ -14,10 +14,10 @@ class UpdateRequestDict(TypedDict):
 
 
 class PrivateUsersClient(ApiClient):
-    def get_get_user_me_api(self) -> Response:
+    def get_user_me_api(self) -> Response:
         return self.get("/api/v1/users/me")
 
-    def get_get_user_api(self, user_id: str) -> Response:
+    def get_user_api(self, user_id: str) -> Response:
         return self.get(f"/api/v1/users/{user_id}")
 
     def update_user_api(self, user_id: str, request: UpdateRequestDict) -> Response:
